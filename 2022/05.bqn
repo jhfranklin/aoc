@@ -1,7 +1,7 @@
-⟨ESplit,Split,Int⟩←•Import "utils.bqn"
+⟨ESplit,Split,Nat⟩←•Import "utils.bqn"
 s‿i←ESplit•FLines "05.in"
 s↩' '⊸≠⊸/¨<˘⍉(⊢⊏˜1+4×·↕4÷˜1+≠)˘>¯1↓s
-i(⌽(Int¨1‿3‿5⊏' '⊸Split)¨)↩
+i(⌽(Nat¨1‿3‿5⊏' '⊸Split)¨)↩
 _Move←{n‿f‿t 𝔽 _𝕣 𝕩:
   f-↩1
   t-↩1

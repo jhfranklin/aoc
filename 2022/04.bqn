@@ -1,5 +1,5 @@
-⟨Split,Int⟩←•Import "utils.bqn"
-in←Int¨∘('-'⊸Split)⚇1 ','⊸Split¨ •FLines "04.in"
+⟨Split,Nat⟩←•Import "utils.bqn"
+in←Nat¨∘('-'⊸Split)⚇1 ','⊸Split¨ •FLines "04.in"
 To←⊣+(↕1+-˜)
 S←∧´∘∊
 A←∨´∘∊
