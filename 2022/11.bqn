@@ -1,4 +1,4 @@
-⟨StrSplit,Nat,Nats⟩←•Import "utils.bqn"
+⟨Nat,Nats⟩←•Import "utils.bqn"
 inp←•FLines "11.in"
 is←initis←Nats¨inp⊏˜1+7×↕8
 os←{"old"≡25↓𝕩?×˜;'+'=23⊑𝕩?+⟜(Nat 25↓𝕩);×⟜(Nat 25↓𝕩)}¨inp⊏˜2+7×↕8
