@@ -9,7 +9,7 @@ S←{𝕊 u‿w:
  c←u⊑˜⊑∘⍋u⊏w
  n←c⊑mvs
  newu←c⊸≠⊸/u
- neww←((1+c⊑w)⌊⊢)⌾(n⊸⊏)w
+ neww←(1+c⊑w)⊸⌊⌾(n⊸⊏)w
  newu‿neww
 }
 SPFrom←{
