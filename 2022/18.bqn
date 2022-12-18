@@ -10,7 +10,6 @@ Find←{𝕊 q‿s:
   q 1⊸↓↩
   s↩⍷s∾<n
   q↩⍷q∾s C˜ Sides <n
-  •Show ≠q
   q‿s
 }
 steam←⊑⌽Find •_while_{0<≠⊑𝕩} ⟨⟩⋈˜⋈3⥊¯1
