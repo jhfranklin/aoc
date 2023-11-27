@@ -1,4 +1,4 @@
-⟨ToNums⟩←•Import "../../bqn-libs/strings.bqn"
+⟨ToNums⟩←•Import "../bqn-libs/strings.bqn"
 props←>ToNums¨ •FLines "15.in"
 tsp←100
 mixes←((tsp-+´)⊸∾)¨(tsp≥+´¨)⊸/⥊↕(1-˜≠props)⥊1+tsp
