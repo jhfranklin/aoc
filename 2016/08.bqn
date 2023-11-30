@@ -1,5 +1,5 @@
 ⟨ToNats⟩←•Import "../bqn-libs/strings.bqn"
-in←•FLines "8.in"
+in←•FLines "08.in"
 Rect←{𝕩∨𝕨∧´∘>⚇∞‿1↕≢𝕩}
 RotCol←{⟨col,dist⟩ 𝕊 grid:(-dist)⊸⌽⌾(col⊸⊏˘) grid}
 RotRow←{⟨row,dist⟩ 𝕊 grid:(-dist)⊸⌽⌾(row⊸⊏) grid}
