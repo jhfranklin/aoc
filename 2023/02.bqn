@@ -1,3 +1,4 @@
+#! /usr/bin/env bqn
 ⟨Split,ToNats⟩←•Import "../bqn-libs/strings.bqn"
 in←•FLines "02.in"
 g←{
