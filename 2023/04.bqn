@@ -1,18 +1,15 @@
+#! /usr/bin/env bqn
 ⟨Split,ToNats⟩←•Import "../bqn-libs/strings.bqn"
 in←•FLines "04.in"
-Parse←{win‿have←ToNats¨'|' Split ⊑⌽':' Split 𝕩}
-Play←{𝕊 win‿have:
-  wins←+´have∊win
-  >⟜0◶⟨0˙,2⊸⋆-⟜1⟩ wins
-}
-•Show +´(Play Parse) ¨in
+wins←{(+´∊˜´) ToNats¨'|' Split ⊑⌽':' Split 𝕩}¨in
 
-tot←0
-ncs←1⥊˜≠cards←Parse¨in
-Play2←{𝕊 cards:
-  tot +↩ nums←⊑ncs
-  ncs 1⊸↓↩
-  ncs +↩ nums×(≠ncs)↑1⥊˜wins←(+´·∊´⌽) cards
-  tot
-}
-•Show ⊑⌽Play2¨ Parse¨in
+•Show +´⌊2⋆wins-1 # Part 1
+
+Total←{
+  cnt‿ncs←𝕩
+  n←1↓ncs
+  nxt←n+(cur←⊑ncs)×(≠n)↑𝕨⥊1
+  (cnt+cur)⋈nxt
+}´
+
+•Show ⊑(0⋈1⥊˜≠wins) Total ⌽wins

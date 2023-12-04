@@ -1,3 +1,4 @@
+#! /usr/bin/env bqn
 s←>∾⟜'.'¨•FLines "03.in"
 dlocs←∊⟜(↕10) s-'0'
 slocs←('.'≠s)∧¬dlocs
