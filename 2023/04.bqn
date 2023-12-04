@@ -1,7 +1,10 @@
 #! /usr/bin/env bqn
-⟨Split,ToNats⟩←•Import "../bqn-libs/strings.bqn"
 in←•FLines "04.in"
-wins←{(+´∊˜´) ToNats¨'|' Split ⊑⌽':' Split 𝕩}¨in
+wins←{
+  c←2↓' '((¬-˜⊢×·+`»⊸>)∘≠⊔⊢)𝕩
+  l←•ParseFloat⚇1(⊑·/"|"⊸≡¨)⊸(↑⋈+⟜1⊸↓) c
+  (+´∊˜´) l
+}¨ in
 
 •Show +´⌊2⋆wins-1 # Part 1
 
