@@ -15,4 +15,4 @@ Total←{
   (cnt+cur)⋈nxt
 }´
 
-•Show ⊑(0⋈1⥊˜≠wins) Total ⌽wins
+•Show ⊑(0⋈1⥊˜≠wins) Total ⌽wins # Part 2
