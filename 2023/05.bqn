@@ -3,11 +3,25 @@
 rs‿rm←(⊑⋈1⊸↓)((⊢-˜¬×+`)(0=≠)¨)⊸⊔•FLines "05.in"
 seeds←ToNats⊑rs
 maps←>¨ToNats⚇1 1⊸↓¨rm
+maps (⍋1⊸⊑˘)⊸⊏¨↩ # Sort using from
+rngs←(⥊(+`1⊸↓)˘)¨ maps
+funs←((⥊((0∾-´)¯1⊸↓)˘)∾0˙)¨ maps
+Next←{map 𝕊 seed:
+  rng‿fun←map
+  seed+(rng⍋seed)⊏fun
+}
+•Show ⌊´(⊑Next´⟜(⌽rngs⋈¨funs))¨seeds # Part 1
 
-Next←{map 𝕊 seeds:
-  [to,fr,sp]←⍉map
-  d←diff×ind←(sp⊸>˘∧0⊸≤)diff←seeds-⌜fr
-  (seeds×∧˝˘ind=0)++˝˘(ind>0)×d +⎉1‿∞ to
+cmaps←rngs⋈¨funs
+NextRange←{map 𝕊 sr:
+  rng‿fun←map
+  a←rng⊏˜{𝕨+↕𝕩-𝕨}´rng⍋sr
+  rs←∘‿2⥊∧sr∾a∾a-1
+  rs+fun⊏˜rng⍋⊑˘rs
+}
+srs←+`˘∘‿2⥊seeds
+NextMap←{map 𝕊 srs:
+  ∾(<map⊸NextRange)˘srs
 }
 
-•Show ⌊´seeds Next´ ⌽maps # Part 1
+•Show ⌊´⥊NextMap´⟜(⌽cmaps) srs # Part 2
