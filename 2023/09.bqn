@@ -1,4 +1,5 @@
-h←(•ParseFloat¨(⊢-˜¬×+`)∘(' '⊸=)⊸⊔)¨ •FLines "09.in"
+#! /usr/bin/env bqn
+h←(•ParseFloat¨(⊢-˜¬×+`)∘(' '⊸=)⊸⊔)¨ •FLines ≠◶"09.in"‿⊑ •args
 
 Project←{𝕊 hist:
   l←≠hist
@@ -6,5 +7,5 @@ Project←{𝕊 hist:
   +`⍟d base∾0
 }
 
-+´(⊑∘⌽Project)¨ h # Part 1
++´(⊑∘⌽Project)¨ h   # Part 1
 +´(⊑∘⌽Project∘⌽)¨ h # Part 2

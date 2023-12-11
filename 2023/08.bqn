@@ -1,7 +1,7 @@
 #! /usr/bin/env bqn
-p‿ns←(('R'=⊑)⋈2⊸↓)•FLines "08.in"
+p‿ns←(('R'=⊑)⋈2⊸↓)•FLines ≠◶"08.in"‿⊑ •args
 map←0⥊˜2∾˜26⋆3
-Convert←+´(26⋆↕3)×-⟜'A'
+Convert←+´(26⋆↕3)×-⟜'A' # Converts codes to decimal
 {
   idx←Convert 3↑𝕩
   map ((7‿8‿9⊸⊏ ⋈○Convert (¯3↑¯1⊸↓))𝕩)⌾(idx⊸⊏)↩
