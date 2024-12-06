@@ -1,24 +1,20 @@
 #! /usr/bin/env bqn
 in←>•FLines ≠◶"06.in"‿⊑ •args
-_fix←{𝔽∘⊢⍟≢⟜𝔽_𝕣∘⊢⍟≢⟜𝔽𝕩}
 
 MDI←/○⥊⟜(↕≢)
-
-g←MDI '#'=in
-st←⊑MDI '^'=in
-v←⋈st
-d←¯1‿0
 Rot←⌽¯1‿1⊸×
+
+obs←MDI '#'=in
+g←⊑MDI '^'=in
+d←¯1‿0
+path←<g≍○<d
 sz←≢in
-Bounds←((∨´¯1⊸=)∨(∨´sz⊸=))
-Test←{
-  Bounds 𝕩 ? 2 ; ⊑g∊˜< 𝕩 ? 1 ; 0
-}
+OoB←∨´≥⟜sz∨≤⟜¯1
+_Hit←{(⊑·∊⟜𝕗<)𝕩}
 
-Step←{𝕊 v‿d:
-  c←⊑v
-  n←c+d
-  Test◶⟨d⋈˜(∾⟜v<),(v⋈Rot d)˙,v‿d˙⟩ n
-}
+_Next←{(<(𝕗 _Hit+´)◶⟨+´⋈⊑∘⌽,⊑⋈Rot∘⊑∘⌽⟩∘⊑)⊸∾𝕩}
+Loop←(¬·∧´∊)
+•Show ≠⍷newobs←⊑¨ 1↓obs _Next •_while_ (¬OoB∘⊑∘⊑) ≍path # Part 1
 
-•Show +´∊⊑Step _fix v⋈d # Part 1
+newobs ⍷↩
+•Show +´Loop¨((∾⟜obs<)⚇1 newobs) {𝕨 _Next •_while_ (¬Loop∨OoB∘⊑∘⊑)𝕩}⚇¯1‿∞ ≍path # Part 2
