@@ -12,10 +12,9 @@ Patrol←{𝕊 map:
   g←st
   d←¯1‿0
   path←•HashMap˜⟨⟩
-  g‿d↩{('#'≠⊑⟜map)∘⊑ ◶⟨-´⋈Rot∘⊑∘⌽,{map 'X'⌾((⊑𝕩)⊸⊑)↩ ⋄ ⟨⟩ path.Set˜ 𝕩 ⋄(+´⋈⊑∘⌽)𝕩}⟩ 𝕩} •_while_ (¬∘path.Has ∧ ¬∘OoB∘⊑) g⋈d
-  map⋈path.Has g⋈d
+  g‿d↩{('#'≠⊑⟜map)∘⊑ ◶⟨-´⋈Rot∘⊑∘⌽,{⟨⟩ path.Set˜ 𝕩 ⋄(+´⋈⊑∘⌽)𝕩}⟩ 𝕩} •_while_ (¬∘path.Has ∧ ¬∘OoB∘⊑) g⋈d
+  (path.Keys@)⋈path.Has g⋈d
 }
 
-•Show +´'X'=⥊p←⊑Patrol in # Part 1
-obs←MDI 'X'=p
-•Show +´(⊑∘⌽Patrol)¨ {'#'⌾(𝕩⊸⊑) in}¨ obs # Part 2
+•Show ≠obs←⍷⊑¨⊑Patrol in# Part 1
+•Show +´{⊑⌽Patrol '#'⌾(𝕩⊸⊑) in}¨ obs # Part 2
