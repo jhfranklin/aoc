@@ -9,4 +9,4 @@ _TestEquation←{ops _𝕣 𝕩:
 }
 •Show (+´ ⟨+,×⟩ _TestEquation¨/⊑¨) in # Part 1
 Concat←{•ParseFloat 𝕩 ∾○•Repr 𝕨}
-•Show (+´ ⟨+,×,Concat⟩ _TestEquation¨/⊑¨) in # Part 1
+•Show (+´ ⟨+,×,Concat⟩ _TestEquation¨/⊑¨) in # Part 2
