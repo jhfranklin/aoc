@@ -4,17 +4,18 @@ in←>•FLines ≠◶"06.in"‿⊑ •args
 MDI←/○⥊⟜(↕≢)
 Rot←⌽¯1‿1⊸×
 
-obs←MDI '#'=in
-g←⊑MDI '^'=in
-d←¯1‿0
-path←<g≍○<d
+st←⊑MDI '^'=in
 sz←≢in
-OoB←∨´≥⟜sz∨≤⟜¯1
-_Hit←{(⊑·∊⟜𝕗<)𝕩}
+OoB←∨´≥⟜sz∨<⟜0
 
-_Next←{(<(𝕗 _Hit+´)◶⟨+´⋈⊑∘⌽,⊑⋈Rot∘⊑∘⌽⟩∘⊑)⊸∾𝕩}
-Loop←(¬·∧´∊)
-•Show ≠⍷newobs←⊑¨ 1↓obs _Next •_while_ (¬OoB∘⊑∘⊑) ≍path # Part 1
+Patrol←{𝕊 map:
+  g←st
+  d←¯1‿0
+  path←•HashMap˜⟨⟩
+  g‿d↩{('#'≠⊑⟜map)∘⊑ ◶⟨-´⋈Rot∘⊑∘⌽,{map 'X'⌾((⊑𝕩)⊸⊑)↩ ⋄ ⟨⟩ path.Set˜ 𝕩 ⋄(+´⋈⊑∘⌽)𝕩}⟩ 𝕩} •_while_ (¬∘path.Has ∧ ¬∘OoB∘⊑) g⋈d
+  map⋈path.Has g⋈d
+}
 
-newobs ⍷↩
-•Show +´Loop¨((∾⟜obs<)⚇1 newobs) {𝕨 _Next •_while_ (¬Loop∨OoB∘⊑∘⊑)𝕩}⚇¯1‿∞ ≍path # Part 2
+•Show +´'X'=⥊p←⊑Patrol in # Part 1
+obs←MDI 'X'=p
+•Show +´(⊑∘⌽Patrol)¨ {'#'⌾(𝕩⊸⊑) in}¨ obs # Part 2
