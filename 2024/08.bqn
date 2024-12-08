@@ -25,7 +25,7 @@ GetAntiNodes←{
 
 GetAllAntiNodes←{
   v←𝕩-𝕨
-  st←v×⚇∞‿0  1+↕n
+  st←v×⚇∞‿0  ↕n
   InBounds¨⊸/ (𝕩+⚇∞‿1 st)∾(𝕨-⚇∞‿1 st)
 } 
-•Show +´∊∾(∾g)⋈∾GetAllAntiNodes´⚇2 p # Part 2
+•Show +´∊∾GetAllAntiNodes´⚇2 p # Part 2
