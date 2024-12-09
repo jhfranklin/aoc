@@ -1,3 +1,4 @@
+#! /usr/bin/env bqn
 map←>•FLines ≠◶"08.in"‿⊑ •args
 MDI←/○⥊⟜(↕≢)    # multidimensional indices
 a←MDI '.'≠map   # get locations of all antennas
