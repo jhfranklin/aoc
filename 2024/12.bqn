@@ -21,7 +21,12 @@ sections←GetSections@
 
 Pad←⊢↑˝·≍⟜¬2+≢
 
-NumEdges←+´·{+´⥊∨´⟨0‿1,1‿0⟩⍷⚇1‿∞ 𝕩}¨ ⍉⊸⋈
+NumEdges←(+´·{+´⥊∨´⟨0‿1,1‿0⟩⍷⚇1‿∞ 𝕩}¨ ⍉⊸⋈)∘Pad
 Area←+´⥊
 
-•Show +´(NumEdges∘Pad¨×Area¨) sections
+•Show +´(NumEdges¨×Area¨) sections # Part 1
+
+corners←(4⥊⋈⟜⌽2‿2⥊1‿0‿0‿1)∾¬⊸∾(<2‿2⊸⥊)˘=⌜˜↕4
+NumWalls←{+´⥊+´corners ⍷⚇1‿∞ Pad 𝕩} 
+
+•Show +´(NumWalls¨×Area¨) sections # Part 2
