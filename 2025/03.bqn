@@ -7,4 +7,17 @@ LJ←{𝕊 s:
   u+t×10
 }
 
-+´LJ¨in # Part 1
+•Show +´LJ¨in # Part 1
+
+st←{⟨⟩⋈˜𝕩-'0'}¨in
+
+N←{𝕊 r‿c:
+cl←≠c
+a←(11-˜≠c)↓r
+i←⊑⍒a
+nc←c∾i⊑r
+nr←(1+i)↓r
+nr⋈nc
+}
+
+•Show +´{10⊸×⊸+˜´⌽ ⊑⌽N⍟12 𝕩}¨ st # Part 2
