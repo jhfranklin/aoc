@@ -25,8 +25,7 @@ P2Area←{x1‿y1 𝕊 x2‿y2:
   x3‿x4 ↩ ∧ x3‿x4
   y3‿y4 ↩ ∧ y3‿y4
   echeck←¬(x1<x4)∧(x2>x3)∧(y1<y4)∧(y2>y3) # check not crossing an edge
-  b←⊑(x1+0.5)⍋˜ s←y1⊑scanlines
-  icheck←(b>0)∧b<≠scanlines # check inside the polygon
+  icheck←2|⊑(x1+0.5)⍋˜ y1⊑scanlines # check inside the polygon
   echeck ∧ icheck
 }´˘edges
 }
